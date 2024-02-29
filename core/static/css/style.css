@@ -1,0 +1,23 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Navegation bar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 10px;
+    border-bottom: 4px solid #bebebe;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+ul li.list-item {
+    margin: 0 20px 0 20px;
+}
