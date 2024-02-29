@@ -6,22 +6,24 @@ body {
 
 /* Effects */
 #text-container {
-    font-family: 'Courier New', monospace;
-    font-size: 50px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #000; /* Blinking cursor effect */
-    animation: blink-caret 0.75s step-end infinite;
-  }
+  font-family: 'Courier New', monospace;
+  font-size: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #000; /* Blinking cursor effect */
+  animation: blink-caret 0.75s step-end infinite;
+  text-align: center; 
+  display: block; /* Ensure block-level element behavior */
+}
 
-  @keyframes blink-caret {
-    from, to {
+@keyframes blink-caret {
+  from, to {
       border-color: transparent;
-    }
-    50% {
-      border-color: black;
-    }
   }
+  50% {
+      border-color: black;
+  }
+}
 
 /* Index template*/
 .main-container {
@@ -62,4 +64,38 @@ body {
 
 ul li.list-item {
     margin: 0 20px 0 20px;
+}
+
+/* Signup template */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 15px 40px 15px;
+  border: 3px solid #bebebe;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-control {
+  height: 35px;
+  width: 250px;
+  margin-top: 5px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-container form button {
+  height: 50px;
+  margin: 10px, 0 , 10px, 0;
+  width: 250px;
+  border: 3px solid #bebebe;
+  border-radius: 10px;
 }

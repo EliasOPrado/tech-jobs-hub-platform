@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
     <div class="main-container">
         <h1 id="text-container"></h1>
 
         <button>
-            Sign Up
+            <a href="{% url 'core:signup' %}">
+                Sign Up
+            </a>
         </button>
     </div>
 {% endblock content %}
