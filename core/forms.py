@@ -62,3 +62,21 @@ class UserRegistrationForm(UserCreationForm):
                 attrs={"class": "form-control", "placeholder": "Enter your last name"}
             ),
         }
+
+
+class UserLoginForm(forms.Form):
+    username_or_email = forms.CharField(
+        label="",
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Enter your username or email"}
+        ),
+    )
+    password = forms.CharField(
+        label="",
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Enter your password",
+            }
+        ),
+    )

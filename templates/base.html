@@ -10,12 +10,27 @@
 </head>
 <body>
     <div class="navbar">
-      <h3>Tech Jobs Hub</h3>
-      <ul>
-        <li class="list-item">Create a new user</li>
-        <li class="list-item">Create a new job post</li>
-        <li class="list-item">See all job list</li>
-      </ul>
+      <h3>
+        <a class="navbar-anchor" href="{% url 'core:index' %}">
+          Tech Jobs Hub
+        </a>
+      </h3>
+        <ul>
+          {% if user.is_authenticated %}
+            {% if user.first_name %}
+              <li class="list-item">Hello {{user.first_name}} </li>
+            {% else %}
+              <li class="list-item">Hello {{user.username}} </li>
+            {% endif %}
+            {% comment %}
+              <li class="list-item">Create a new job post</li>
+              <li class="list-item">See all job list</li>
+            {% endcomment %}
+            <li class="list-item"><a href="{%url 'core:logout'%}">Logout</a></li>
+            {% else %}
+            <li class="list-item"><a href="{%url 'core:login'%}">Login</a></li>
+          {% endif %}
+        </ul>
     </div>
     {% block content %}
 

@@ -7,7 +7,7 @@ class ExtendedUser(User):
     is_company = models.BooleanField(default=False)
     is_applicant = models.BooleanField(default=False)
 
- 
+
 class Base(models.Model):
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField(auto_now=True)

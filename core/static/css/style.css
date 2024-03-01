@@ -62,6 +62,11 @@ body {
     border-bottom: 4px solid #bebebe;
 }
 
+.navbar h3 a.navbar-anchor {
+  text-decoration: none;
+  color: black;
+}
+
 .navbar ul {
     display: flex;
     list-style-type: none;

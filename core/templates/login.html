@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="main-container">
+        <div class="form-container">
+        <h2>Login</h2>
+        <form method="POST" action="{% url 'core:login' %}">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Login</button>
+        </form>
+        </div>
+    </div>
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Error!</strong> Please fix the following errors:<br>
+            {{ form.errors }}
+        </div>
+    {% endif %}
+{% endblock %}
