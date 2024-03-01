@@ -109,3 +109,33 @@ ul li.list-item {
   border: 3px solid #bebebe;
   border-radius: 10px;
 }
+
+.inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.left-container, .right-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #bebebe;
+  border-radius: 10px;
+  height: 500px;
+  width: 400px;
+  margin: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.left-container:hover, .right-container:hover {
+    transform: scale(1.05);
+}
+
+.inner-container a {
+  text-decoration: none;
+  color: black;
+}

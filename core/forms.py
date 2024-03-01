@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from .models import Company, Applicant
+
 
 class UserRegistrationForm(UserCreationForm):
     username = forms.CharField(
@@ -80,3 +82,27 @@ class UserLoginForm(forms.Form):
             }
         ),
     )
+
+class CompanyForm(forms.ModelForm):
+    email = forms.CharField(
+        label="",
+        widget=forms.EmailInput(
+            attrs={"class": "form-control", "placeholder": "Enter the company's email address"}
+        ),
+    )
+
+    class Meta:
+        model = Company
+        fields = ["company_name", "email"]
+        widgets = {
+            "company_name": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Enter the company name"}
+            ),
+            "last_name": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Enter your last name"}
+            ),
+        }
+
+
+
+
