@@ -48,6 +48,11 @@ body {
     background-color: #96a8e0;
 }
 
+.main-container button a.main-button {
+  text-decoration: none;
+  color: black;
+}
+
 /* Navegation bar*/
 .navbar {
     display: flex;

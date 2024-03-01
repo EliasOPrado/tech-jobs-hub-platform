@@ -12,8 +12,8 @@ def signup(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Log the user in
-            return redirect('index')  # Redirect to the home page
+            login(request, user)  
+            return redirect('core:index')
     else:
         form = UserRegistrationForm()
 

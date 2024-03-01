@@ -7,7 +7,7 @@ class UserRegistrationForm(UserCreationForm):
     username = forms.CharField(
         label="",
         help_text=None,
-        widget=forms.EmailInput(
+        widget=forms.TextInput(
             attrs={"class": "form-control", "placeholder": "Enter an unique username"}
         ),
     )

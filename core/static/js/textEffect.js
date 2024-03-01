@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       "Your dream career, simplified.",
       "Your dream career, simplified.",
       "Recruit smarter, not harder.",
-      "Tech Jobs Hub:<br> Unlock Your Next Opportunity"
+      "Tech Jobs Hub:<br> Unlock Your Next Opportunity.."
     ];
 
     // type one text in the typewriter
