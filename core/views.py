@@ -10,13 +10,14 @@ from django.contrib.auth import login, logout, authenticate
 def index(request):
     return render(request, "index.html")
 
+
 def signup(request):
     if request.method == "POST":
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            #TODO: When creating the user, add a checkbox 
+            # TODO: When creating the user, add a checkbox
             # - to make user set as part of a already created company.
             return redirect("core:chose-entity")
     else:
@@ -32,7 +33,7 @@ def set_login(request):
         if user_form.is_valid():
             user = authenticate(
                 username=user_form.cleaned_data["username_or_email"],
-                password=user_form.cleaned_data["password"]
+                password=user_form.cleaned_data["password"],
             )
             if user:
                 login(request, user)
@@ -58,12 +59,15 @@ def set_logout(request):
 
 
 def chose_entity(request):
-    entity_type = request.GET.get('entity_type', None)
+    entity_type = request.GET.get("entity_type", None)
 
     if entity_type:
-        return redirect(reverse("core:create-entity", kwargs={'entity_type': entity_type}))
-    
+        return redirect(
+            reverse("core:create-entity", kwargs={"entity_type": entity_type})
+        )
+
     return render(request, "entity_type.html")
+
 
 def create_entity(request, entity_type):
     if request.method == "POST":
@@ -74,8 +78,10 @@ def create_entity(request, entity_type):
                 company.manager = request.user
                 company.save()
                 messages.success(request, "Company entity created successfully.")
-                return redirect(reverse("core:index"))  # Adjust the redirect URL as needed
-            
+                return redirect(
+                    reverse("core:index")
+                )  # Adjust the redirect URL as needed
+
         elif entity_type == "applicant":
             form = ApplicantForm(request.POST)
             if form.is_valid():
@@ -83,8 +89,10 @@ def create_entity(request, entity_type):
                 applicant.user = request.user
                 applicant.save()
                 messages.success(request, "Applicant entity created successfully.")
-                return redirect(reverse("core:index"))  # Adjust the redirect URL as needed
-            
+                return redirect(
+                    reverse("core:index")
+                )  # Adjust the redirect URL as needed
+
     else:
         # Handle GET request and render the form
         if entity_type == "company":
@@ -95,4 +103,6 @@ def create_entity(request, entity_type):
             messages.error(request, "There was an error with the entity choice.")
             return redirect(reverse("core:chose-entity"))
 
-    return render(request, 'entity_creation_form.html', {'form': form, 'entity_type': entity_type})
+    return render(
+        request, "entity_creation_form.html", {"form": form, "entity_type": entity_type}
+    )

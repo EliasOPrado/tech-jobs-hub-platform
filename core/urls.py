@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import index, signup, set_login, set_logout, chose_entity, create_entity
+
 app_name = "core"
 
 urlpatterns = [

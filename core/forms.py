@@ -70,7 +70,10 @@ class UserLoginForm(forms.Form):
     username_or_email = forms.CharField(
         label="",
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Enter your username or email"}
+            attrs={
+                "class": "form-control",
+                "placeholder": "Enter your username or email",
+            }
         ),
     )
     password = forms.CharField(
@@ -83,11 +86,15 @@ class UserLoginForm(forms.Form):
         ),
     )
 
+
 class CompanyForm(forms.ModelForm):
     email = forms.CharField(
         label="",
         widget=forms.EmailInput(
-            attrs={"class": "form-control", "placeholder": "Enter the company's email address"}
+            attrs={
+                "class": "form-control",
+                "placeholder": "Enter the company's email address",
+            }
         ),
     )
     company_name = forms.CharField(
@@ -101,6 +108,7 @@ class CompanyForm(forms.ModelForm):
         model = Company
         fields = ["company_name", "email"]
 
+
 class ApplicantForm(forms.ModelForm):
     headline = forms.CharField(
         label="",
@@ -111,7 +119,10 @@ class ApplicantForm(forms.ModelForm):
     technologies = forms.CharField(
         label="",
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Chose the technologies you work."}
+            attrs={
+                "class": "form-control",
+                "placeholder": "Chose the technologies you work.",
+            }
         ),
     )
 
@@ -125,5 +136,3 @@ class ApplicantForm(forms.ModelForm):
     class Meta:
         model = Applicant
         fields = ["headline", "description", "technologies"]
-
-
