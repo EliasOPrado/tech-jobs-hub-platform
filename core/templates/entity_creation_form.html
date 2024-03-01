@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="main-container">
+        <div class="form-container">
+            <h3>Create a new {{entity_type}}</h3>
+        <form method="post" action="{% url 'core:create-entity' entity_type %}">
+            {% csrf_token %}
+            {% if entity_type == 'company' %}
+                {{ form }}
+            {% elif entity_type == 'applicant' %}
+                {{ form }}
+            {% endif %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -9,7 +9,7 @@ class ExtendedUser(User):
 
 
 class Base(models.Model):
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:

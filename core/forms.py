@@ -90,19 +90,40 @@ class CompanyForm(forms.ModelForm):
             attrs={"class": "form-control", "placeholder": "Enter the company's email address"}
         ),
     )
+    company_name = forms.CharField(
+        label="",
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Enter the company name"}
+        ),
+    )
 
     class Meta:
         model = Company
         fields = ["company_name", "email"]
-        widgets = {
-            "company_name": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Enter the company name"}
-            ),
-            "last_name": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Enter your last name"}
-            ),
-        }
 
+class ApplicantForm(forms.ModelForm):
+    headline = forms.CharField(
+        label="",
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Ex: Your job title..."}
+        ),
+    )
+    technologies = forms.CharField(
+        label="",
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Chose the technologies you work."}
+        ),
+    )
 
+    description = forms.CharField(
+        label="",
+        widget=forms.Textarea(
+            attrs={"class": "form-control", "placeholder": "Describe about yourself."}
+        ),
+    )
+
+    class Meta:
+        model = Applicant
+        fields = ["headline", "description", "technologies"]
 
 

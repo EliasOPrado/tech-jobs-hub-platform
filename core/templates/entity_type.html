@@ -3,12 +3,12 @@
 {% block content %}
     <div class="main-container">
         <div class="inner-container">
-            <a href="">
+            <a href="{% url 'core:create-entity' entity_type='company'%}">
                 <div class="left-container">
                     <h1>I am a company</h1>
                 </div>
             </a>
-            <a href="">
+            <a href="{% url 'core:create-entity' entity_type='applicant'%}">
                 <div class="right-container">
                     <h1>I am an applicant</h1>
                 </div>
