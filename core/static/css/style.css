@@ -115,6 +115,7 @@ ul li.list-item {
   border-radius: 10px;
 }
 
+/* Entity type */
 .inner-container {
   display: flex;
   align-items: center;
@@ -143,4 +144,50 @@ ul li.list-item {
 .inner-container a {
   text-decoration: none;
   color: black;
+}
+
+/* Applicant */
+.other-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.list-container {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 90vh;
+  border-right: 4px solid #bebebe;
+}
+
+.job-post {
+  border-bottom:2px solid #bebebe;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.detail-container {
+  width: 60%;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+}
+
+.job-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.job-description {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  overflow: auto;
 }

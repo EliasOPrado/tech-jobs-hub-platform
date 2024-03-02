@@ -106,3 +106,6 @@ def create_entity(request, entity_type):
     return render(
         request, "entity_creation_form.html", {"form": form, "entity_type": entity_type}
     )
+
+def list_applicants(request):
+    return render(request, 'applicant_list.html')
