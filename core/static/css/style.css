@@ -156,7 +156,8 @@ ul li.list-item {
 .list-container {
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-y: scroll;
+  scrollbar-width: thin;
   width: 40%;
   max-height: 90vh;
   border-right: 4px solid #bebebe;
@@ -164,8 +165,11 @@ ul li.list-item {
 
 .job-post {
   border-bottom:2px solid #bebebe;
-  margin-bottom: 5px;
   padding: 10px;
+}
+
+.job-post.selected{
+  background-color: #dedcdc;
 }
 
 .detail-container {
