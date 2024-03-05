@@ -6,7 +6,7 @@ from .views import (
     set_logout, 
     chose_entity, 
     create_entity,
-    list_applicants,
+    job_posts,
 )
 
 app_name = "core"
@@ -18,5 +18,6 @@ urlpatterns = [
     path("logout/", set_logout, name="logout"),
     path("chose-entity/", chose_entity, name="chose-entity"),
     path("create-entity/<str:entity_type>/", create_entity, name="create-entity"),
-    path("applicant/", list_applicants, name="applicant")
+    path("job-posts/", job_posts, name="job-posts"),
+    path('job-post/<int:id>/', job_posts, name='job-post'),
 ]

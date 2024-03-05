@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegistrationForm, UserLoginForm, CompanyForm, ApplicantForm
 from django.contrib.auth import login, logout, authenticate
+from .models import Applicant, Company, JobPost
+from .forms import UserRegistrationForm, UserLoginForm, CompanyForm, ApplicantForm
 
 
 # Create your views here.
@@ -107,5 +109,22 @@ def create_entity(request, entity_type):
         request, "entity_creation_form.html", {"form": form, "entity_type": entity_type}
     )
 
-def list_applicants(request):
-    return render(request, 'applicant_list.html')
+
+def update_entity(request, entity_type, id):
+    pass
+
+
+def job_posts(request, id=None):
+    job_posts = JobPost.objects.all()
+    select_job_post = JobPost.objects.first()
+
+    if id:
+        select_job_post = get_object_or_404(JobPost, id=id)
+
+    context = {"job_posts": job_posts, "select_job_post": select_job_post}
+
+    return render(request, "job_post_list.html", context)
+
+
+def list_companies(request):
+    return render(request, "company_list.html")

@@ -156,8 +156,9 @@ ul li.list-item {
 .list-container {
   display: flex;
   flex-direction: column;
+  overflow: auto;
   width: 40%;
-  height: 90vh;
+  max-height: 90vh;
   border-right: 4px solid #bebebe;
 }
 

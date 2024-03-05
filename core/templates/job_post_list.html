@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="other-main-container">
+        <div class="list-container">
+            {% for job_post in job_posts %}
+                <a href="{% url 'core:job-post' id=job_post.id %}">
+                    <div class="job-post">
+                        <h3>{{ job_post.job_title }}</h3>
+                        <h4>{{ job_post.company.company_name }}</h4>
+                        <p>{{ job_post.location }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="detail-container">
+            <div class="job-details">
+                <h1>{{ select_job_post.job_title }}</h1>
+                <h4>{{ select_job_post.location }}</h4>
+            </div>
+            <div class="job-description">
+               <p>{{ select_job_post.job_description }}</p>
+            </div>     
+        </div>
+    </div>
+{% endblock content %}

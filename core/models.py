@@ -29,6 +29,7 @@ class Company(Base):
         User, on_delete=models.CASCADE, related_name="companies_managed"
     )
     email = models.EmailField()
+    location = models.CharField(max_length=255, default="São Paulo, Brazil")
 
     def __str__(self):
         return str(self.company_name)
@@ -50,7 +51,8 @@ class JobPost(Base):
     company = models.ForeignKey(
         Company, on_delete=models.CASCADE, related_name="job_posts"
     )
-    applicants = models.ManyToManyField(Applicant, related_name="job_application")
-
+    applicants = models.ManyToManyField(Applicant, related_name="job_application", null=True, blank=True)
+    location = models.CharField(max_length=255, default="São Paulo, Brazil")
+    
     def __str__(self):
         return str(self.job_title)
