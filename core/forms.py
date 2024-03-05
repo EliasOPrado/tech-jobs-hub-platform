@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from .models import Company, Applicant
+from .models import Company, Applicant, JobPost
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -136,3 +136,10 @@ class ApplicantForm(forms.ModelForm):
     class Meta:
         model = Applicant
         fields = ["headline", "description", "technologies"]
+
+
+class JobPostForm(forms.ModelForm):
+    class Meta:
+        model = JobPost
+        # TODO add all the widgets..
+        fields = "__all__"

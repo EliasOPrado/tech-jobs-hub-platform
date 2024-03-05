@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="other-main-container">
-        <div class="list-container job-post">
+    <div class="job-post-main-container">
+        <div class="job-post-list-container job-post">
             {% for job_post in job_posts %}
-                <a href="{% url 'core:job-post' id=job_post.id %}">
-                    <div class="job-post {% if select_job_post.id == job_post.id %}selected{% endif %}">
+                <a href="{% url 'core:job-post' id=job_post.id %}" class="{% if select_job_post.id == job_post.id %}selected{% endif %}">
+                    <div class="job-post">
                         <h3>{{ job_post.job_title }}</h3>
                         <h4>{{ job_post.company.company_name }}</h4>
                         <p>{{ job_post.location }}</p>

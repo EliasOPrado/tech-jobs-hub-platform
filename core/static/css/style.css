@@ -146,21 +146,21 @@ ul li.list-item {
   color: black;
 }
 
-/* Applicant */
-.other-main-container {
+/* Job posts page */
+.job-post-main-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90vh;
 }
-.list-container {
+.job-post-list-container {
   display: flex;
   flex-direction: column;
   width: 40%;
   max-height: 90vh;  
 }
 
-.list-container.job-post{
+.job-post-list-container.job-post{
   overflow-y: scroll;
   scrollbar-width: thin;
   border-right: 4px solid #bebebe;
@@ -168,13 +168,54 @@ ul li.list-item {
 
 .job-post {
   border-bottom:2px solid #bebebe;
-  padding: 10px;
 }
 
-.job-post.selected{
+.selected{
   background-color: #dedcdc;
+  padding: 0 10px 0 10px;
 }
 
+/* Company page */
+.company-main-container {
+  display: flex;
+}
+
+.company-left-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 90vh;
+  padding: 20px; 
+}
+
+.company-right-side{
+  background-color: #f0f0f0;
+  width: 50%;
+  padding: 20px;
+}
+
+.company-job-post-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.company-job-post-item{
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  width: 220px;
+  height: 110px;
+  padding: 10px;
+  margin: 5px;
+  border: 3px solid #bebebe;
+  border-radius: 10px;
+}
+
+
+
+h3.company-job-post-title{
+  margin: 0;
+}
 .detail-container {
   width: 60%;
 }
