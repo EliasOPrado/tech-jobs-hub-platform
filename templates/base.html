@@ -22,12 +22,12 @@
             {% else %}
               <li class="list-item">Hello {{user.username}} </li>
             {% endif %}
-            {% comment %}
-              <li class="list-item">Create a new job post</li>
-              <li class="list-item">See all job list</li>
-            {% endcomment %}
+            {% if user.companies_managed.all%}
+            <li class="list-item"><a href="{%url 'core:company-page' id=user.id%}">Create a new job post</a></li>
+            {% endif %}
+            <li class="list-item"><a href="{%url 'core:job-posts'%}">See all jobs</a></li>
             <li class="list-item"><a href="{%url 'core:logout'%}">Logout</a></li>
-            {% else %}
+          {% else %}
             <li class="list-item"><a href="{%url 'core:login'%}">Login</a></li>
           {% endif %}
         </ul>

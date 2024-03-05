@@ -81,7 +81,7 @@ def create_entity(request, entity_type):
                 company.save()
                 messages.success(request, "Company entity created successfully.")
                 return redirect(
-                    reverse("core:index")
+                    reverse("core:job-posts")
                 )  # Adjust the redirect URL as needed
 
         elif entity_type == "applicant":
@@ -92,7 +92,7 @@ def create_entity(request, entity_type):
                 applicant.save()
                 messages.success(request, "Applicant entity created successfully.")
                 return redirect(
-                    reverse("core:index")
+                    reverse("core:company-page")
                 )  # Adjust the redirect URL as needed
 
     else:
@@ -126,5 +126,9 @@ def job_posts(request, id=None):
     return render(request, "job_post_list.html", context)
 
 
-def list_companies(request):
-    return render(request, "company_list.html")
+def company_page(request, id):
+    job_posts = JobPost.objects.filter(company__manager=id)
+    context = {
+        "job_posts":job_posts,
+    }
+    return render(request, "company_page.html", context)

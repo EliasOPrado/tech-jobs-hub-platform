@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="other-main-container">
-        <div class="list-container">
+        <div class="list-container job-post">
             {% for job_post in job_posts %}
                 <a href="{% url 'core:job-post' id=job_post.id %}">
                     <div class="job-post {% if select_job_post.id == job_post.id %}selected{% endif %}">
